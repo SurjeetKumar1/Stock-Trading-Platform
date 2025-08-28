@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import "./Login_user.css";
 import { AuthContext } from './Context';
 import { useNavigate } from 'react-router-dom';
+import { Zerodha } from '../config';
 
 function Login() {
   const navigate = useNavigate();
@@ -70,7 +71,8 @@ function Login() {
           target="_blank"
             rel="noopener noreferrer"
             style={{ outline: "none", color: "#ff531a", textDecoration: "none" }} 
-            href='http://localhost:3000/signup'
+            href={`${Zerodha}/signup`}
+            // href='http://localhost:3000/signup'
           >
             <span>Signup now!</span>
           </a>
