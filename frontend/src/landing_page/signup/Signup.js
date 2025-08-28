@@ -3,6 +3,7 @@ import "./signup.css"
 import { DB_URL } from '../../config';
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import { zerodha_kite } from '../../config';
 
 function Signup() {
     const [name,setName]=useState("");
@@ -110,7 +111,7 @@ function Signup() {
                 <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href='http://localhost:3001/login' >Zerodha Kite</a>
+                href={`${zerodha_kite}/login`} >Zerodha Kite</a>
               </div>
             </div>
             </form>
