@@ -1,5 +1,6 @@
 import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
+import { DB_URL } from "../config";
 
 import axios from "axios";
 
@@ -13,7 +14,8 @@ const [stockQuantity,setStockQuantity]=useState(1);
 const [stockPrice,setStockPrice]=useState(0.0);
 
   const handleBuyClick=async()=>{
-    await axios.post("http://localhost:3002/order",{
+    // await axios.post("http://localhost:3002/order",{
+    await axios.post(`${DB_URL}/order`,{
       name:uid,
       qty:stockQuantity,
       price:stockPrice,

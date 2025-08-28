@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
+import { DB_URL } from "../config";
 
 const Positions = () => {
   const [positions,setPositions]=useState([]);
   useEffect(()=>{
      async function fetchPostionsData(){
-      await axios.get("http://localhost:3002/positions").then((positionsData)=>{
+      // await axios.get("http://localhost:3002/positions").then((positionsData)=>{
+      await axios.get(`${DB_URL}/positions`).then((positionsData)=>{
+
         setPositions(positionsData.data);
       }).catch((err)=>{
         console.log("Positions daat fetching API Error",err);

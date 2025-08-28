@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
+import { DB_URL } from "../config";
 
 const Holdings = () => {
   const [holdings,setholdings]=useState([]);
 
   useEffect(()=>{
     async function fetchHoldings(){
-      await axios.get("http://localhost:3002/holdings").then((holdingData)=>{
+      // await axios.get("http://localhost:3002/holdings").then((holdingData)=>{
+      await axios.get(`${DB_URL}/holdings`).then((holdingData)=>{
         setholdings(holdingData.data);
       }).catch((err)=>{
         console.log(err);
