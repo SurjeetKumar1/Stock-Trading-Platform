@@ -1,0 +1,127 @@
+
+.Container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.loginContainer {
+    margin-top: 5rem;
+    border: none;
+    box-shadow: 0 2px 4px 2px rgba(10, 20, 50, 0.08);
+    padding: 48px 40px 30px 40px;
+    border-radius: 3px;
+    min-width: 280px;
+    max-height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LogoConatiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.LogoConatiner img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 2.5rem;
+}
+
+.LogoConatiner p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #232323;
+    font-weight: 400;
+}
+
+.loginContainer input[type="text"],
+.loginContainer input[type="password"] {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    outline: none;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+    color: gray;
+}
+
+.loginContainer button {
+    width: 100%;
+    background: #ff531a;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.loginContainer button:hover {
+    background: #e44713;
+}
+
+footer {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    max-width: 96vw;
+}
+
+footer img {
+    margin: 18px 0 10px 0;
+    height: 24px;
+}
+
+footer .brand {
+    margin: 8px 0 10px 0;
+    color: #bbbbbb;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+footer .signup {
+    margin-top: 2px;
+    margin-bottom: 6px;
+    font-size: 1rem;
+    color: #232323;
+    text-align: center;
+}
+
+footer .signup span:last-child {
+    color: #ff531a;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+footer .signup span:last-child :hover{
+    color: black;
+}
+
+
+@media (max-width: 600px) {
+    .loginContainer {
+        min-width: 250px;
+    }
+}

@@ -1,0 +1,43 @@
+.ProfileDropDown {
+    position: absolute;
+    right: 0;
+    top: 70px;
+    border: 1px solid #ddd;
+    width: 150px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 100;
+  }
+  
+  .ProfileDropDown div {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .ProfileDropDown div:hover {
+    background: #f5f5f5;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  

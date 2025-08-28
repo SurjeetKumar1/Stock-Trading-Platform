@@ -1,0 +1,42 @@
+.signupBtn{
+    background-color: #387ed1!important;
+    color: white !important;
+    width: 50% !important;
+    height: 20%;
+    font-size: 1.2rem;
+    padding-inline: 1rem;
+    padding-block: 0.8rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+}
+.signupBtn:hover{
+    background-color: black!important;
+    color: white !important;
+
+}
+form input {
+    border: 1px solid gray;
+    box-shadow: none; 
+  }
+  
+  form input:focus {
+    border: 1px solid black !important;
+    box-shadow: none !important; 
+  }
+
+  .AlreadyAccount{
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+
+  .AlreadyAccount a{
+    color: rgb(255, 85, 0);
+    text-decoration: none;
+  }
+
+
+  .AlreadyAccount a:hover{
+    color: rgb(31, 12, 251);
+  }
+  

@@ -1,0 +1,89 @@
+/* Container centers card nicely */
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 70vh; 
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+
+  .login-card {
+    width: 100%;
+    max-width: 480px;
+    /* background: #fff; */
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Title */
+  .lk-title {
+    color: #387ed1; /* blue highlight */
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Subtitle text */
+  .lk-text {
+    color: #6b7280; /* subtle gray */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Button */
+  .KiteLoginBtn {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    text-decoration: none;
+    background: #387ed1(37, 68, 207);
+    /* color: #fff; */
+    padding: 0.9rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 16px rgba(37, 68, 207, 0.25);
+  }
+  
+  .KiteLoginBtn:hover {
+    background:black;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 68, 207, 0.3);
+  }
+  
+  .KiteLoginBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(37, 68, 207, 0.2);
+  }
+  
+
+  @media (max-width: 600px) {
+    .login-card {
+      padding: 1.5rem;
+    }
+  
+    .lk-text {
+      font-size: 0.9rem;
+    }
+  
+    .KiteLoginBtn {
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+    }
+  }
+  
