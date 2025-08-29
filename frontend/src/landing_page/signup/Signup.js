@@ -38,7 +38,7 @@ function Signup() {
       
         } catch (err) {
           console.error("Signup error:", err.response?.data || err.message);
-          setMessage(err.response.data.Message);  // fallback
+          setMessage(err.response?.data?.Message || "Something went wrong");  // fallback
         }finally{
           setLoading(false);
         }
