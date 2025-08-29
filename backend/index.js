@@ -19,7 +19,7 @@ const DB_URL=process.env.MONGO_URL;
 const app=express();
 // app.use(cors());  //cors is s middleware
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:3001"],
+  origin: ["https://zerodha-snowy-three.vercel.app", "https://zerodha-kite-kappa.vercel.app"],
   credentials: true
 }));
 app.use(bodyParser.json())
