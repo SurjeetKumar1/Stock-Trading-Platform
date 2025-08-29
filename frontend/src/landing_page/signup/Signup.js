@@ -14,35 +14,60 @@ function Signup() {
     const [loading,setLoading]=useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-      setLoading(true);
-      setMessage("")
+    // const handleSubmit = async (e) => {
+    //   setLoading(true);
+    //   setMessage("")
+    //     e.preventDefault();
+    //     try {
+    //       // const response = await axios.post(`${DB_URL}/signup`, {
+    //       //   name,
+    //       //   lastName,
+    //       //   email,
+    //       //   password,
+    //       // });
+    //       const response = await axios.post(
+    //         `${DB_URL}/signup`,
+    //         { name, lastName, email, password },
+    //         { withCredentials: true }   // 👈 add this config
+    //       );
+          
+    //       if(response.data.Message){
+    //         navigate("/login_zerodha_kite")
+    //       }
+    //       setMessage(response.data.Message); 
+      
+    //     } catch (err) {
+    //       console.error("Signup error:", err.response?.data || err.message);
+    //       setMessage(err.response?.data?.Message || "Something went wrong");  // fallback
+    //     }finally{
+    //       setLoading(false);
+    //     }
+      // };
+      const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setMessage("");
+      
         try {
-          // const response = await axios.post(`${DB_URL}/signup`, {
-          //   name,
-          //   lastName,
-          //   email,
-          //   password,
-          // });
           const response = await axios.post(
             `${DB_URL}/signup`,
             { name, lastName, email, password },
-            { withCredentials: true }   // 👈 add this config
+            { withCredentials: true }
           );
-          
-          if(response.data.Message){
-            navigate("/login_zerodha_kite")
+      
+          if (response.data.Message) {
+            navigate("/login_zerodha_kite");
           }
-          setMessage(response.data.Message); 
+          setMessage(response.data.Message);
       
         } catch (err) {
           console.error("Signup error:", err.response?.data || err.message);
-          setMessage(err.response?.data?.Message || "Something went wrong");  // fallback
-        }finally{
+          setMessage(err.response?.data?.Message || err.message || "Something went wrong");
+        } finally {
           setLoading(false);
         }
       };
+      
   return (
     <>
       <div className="container mt-5">
