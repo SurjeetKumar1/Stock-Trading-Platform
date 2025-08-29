@@ -15,73 +15,61 @@ function Signup() {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
+      setLoading(true);
+      setMessage("")
         e.preventDefault();
-        setLoading(true);
-        setMessage("");
-      
-        // Basic validation
-        if (!name.trim() || !lastName.trim() || !email.trim() || !password.trim()) {
-            setMessage("All fields are required");
-            setLoading(false);
-            return;
-        }
-
-        if (password.length < 6) {
-            setMessage("Password must be at least 6 characters long");
-            setLoading(false);
-            return;
-        }
-
         try {
-            console.log('Attempting signup with URL:', `${DB_URL}/signup`);
-            console.log('Signup data:', { name, lastName, email, password: '***' });
-            
-            const response = await axios.post(
-                `${DB_URL}/signup`,
-                { name, lastName, email, password },
-                { 
-                    withCredentials: true,
-                    timeout: 10000, // 10 second timeout
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            );
-        
-            console.log('Signup response:', response.data);
-            
-            if (response.data.Message) {
-                setMessage(response.data.Message);
-                // Navigate after a short delay to show success message
-                setTimeout(() => {
-                    navigate("/login_zerodha_kite");
-                }, 1500);
-            }
-        
+          // const response = await axios.post(`${DB_URL}/signup`, {
+          //   name,
+          //   lastName,
+          //   email,
+          //   password,
+          // });
+          const response = await axios.post(
+            `${DB_URL}/signup`,
+            { name, lastName, email, password },
+            { withCredentials: true }   
+          );
+          
+          if(response.data.Message){
+            navigate("/login_zerodha_kite")
+          }
+          console.log("cxcasdas",response)
+          setMessage(response.data.Message); 
+      
         } catch (err) {
-            console.error("Signup error:", err);
-            
-            let errorMessage = "Something went wrong";
-            
-            if (err.response) {
-                // Server responded with error status
-                errorMessage = err.response.data?.Message || `Server error: ${err.response.status}`;
-                console.error('Error response:', err.response.data);
-            } else if (err.request) {
-                // Request was made but no response received
-                errorMessage = "No response from server. Please check your connection.";
-                console.error('No response received:', err.request);
-            } else {
-                // Something else happened
-                errorMessage = err.message || "Network error occurred";
-                console.error('Other error:', err.message);
-            }
-            
-            setMessage(errorMessage);
-        } finally {
-            setLoading(false);
+
+          console.error("Signup error:", err.response?.data || err.message);
+          console.log(err.response);
+          setMessage(err.response?.data?.Error || "Something went wrong");  // fallback
+        }finally{
+          setLoading(false);
         }
-    };
+      };
+      // const handleSubmit = async (e) => {
+      //   e.preventDefault();
+      //   setLoading(true);
+      //   setMessage("");
+      
+      //   try {
+      //     const response = await axios.post(
+      //       `${DB_URL}/signup`,
+      //       { name, lastName, email, password },
+      //       { withCredentials: true }
+      //     );
+      
+      //     if (response.data.Message) {
+      //       navigate("/login_zerodha_kite");
+      //     }
+      //     setMessage(response.data.Message);
+      
+      //   } catch (err) {
+      //     console.error("Signup error:", err.response?.data || err.message);
+      //     setMessage(err.response?.data?.Message || err.message || "Something went wrong");
+      //   } finally {
+      //     setLoading(false);
+      //   }
+      // };
       
   return (
     <>
@@ -107,20 +95,7 @@ function Signup() {
           <div className="col-md-6">
           
             <form className="p-3 p-md-5 " onSubmit={handleSubmit}>
-            {message && (
-                <div 
-                    style={{
-                        color: message.includes("successful") ? "green" : "red", 
-                        marginBottom:"1rem",
-                        padding: "10px",
-                        borderRadius: "5px",
-                        backgroundColor: message.includes("successful") ? "#d4edda" : "#f8d7da",
-                        border: `1px solid ${message.includes("successful") ? "#c3e6cb" : "#f5c6cb"}`
-                    }}
-                >
-                    {message}
-                </div>
-            )}
+            {message && <div style={{color:"red", marginBottom:"1rem"}}>{message}</div>}
               <div className="row mb-3">
                 <div className="col">
                   <input
@@ -129,8 +104,6 @@ function Signup() {
                     placeholder="Name"
                     value={name}
                     onChange={(e)=>setName(e.target.value)}
-                    required
-                    disabled={loading}
                   />
                 </div>
                 <div className="col">
@@ -140,8 +113,6 @@ function Signup() {
                     placeholder="Last Name"
                     value={lastName}
                     onChange={(e)=>setLastName(e.target.value)}
-                    required
-                    disabled={loading}
                   />
                 </div>
               </div>
@@ -153,8 +124,6 @@ function Signup() {
                   placeholder="Email"
                   value={email}
                   onChange={(e)=>setEmail(e.target.value)}
-                  required
-                  disabled={loading}
                 />
               </div>
 
@@ -165,32 +134,20 @@ function Signup() {
                   placeholder="Password"
                   value={password}
                   onChange={(e)=>setPassword(e.target.value)}
-                  required
-                  disabled={loading}
-                  minLength={6}
                 />
               </div>
 
-              <button 
-                type="submit" 
-                className="signupBtn"
-                disabled={loading}
-              >
-                {loading ? "Sign Up ...." : "Sign Up"}
+              <button type="submit" className=" signupBtn">
+                {loading?"Sign Up ....":"Sign Up"}
               </button>
-              
               <div>
-                <div className='AlreadyAccount'>
-                  Already have an account?&nbsp;
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={`${zerodha_kite}/login`}
-                  >
-                    Zerodha Kite
-                  </a>
-                </div>
+              <div className='AlreadyAccount'>Already have an account?&nbsp;
+                <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`${zerodha_kite}/login`} >Zerodha Kite</a>
               </div>
+            </div>
             </form>
            
           </div>

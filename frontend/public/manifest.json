@@ -3,17 +3,17 @@
   "name": "Zerodha Trading Platform",
   "icons": [
     {
-      "src": "media/images/TabLogo.png",
+      "src": "/media/images/TabLogo.jpeg",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "media/images/TabLogo.png",
+      "src": "/media/images/TabLogo.jpeg",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
