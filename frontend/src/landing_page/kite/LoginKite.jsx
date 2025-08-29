@@ -1,5 +1,6 @@
 import React from "react";
 import "./loginKite.css"
+import { zerodha_kite } from "../../config";
 
 export default function LoginKite() {
   return (
@@ -12,7 +13,8 @@ export default function LoginKite() {
         </p>
 
         <a
-          href="http://localhost:3001/login"
+          // href="http://localhost:3001/login"
+          href={`${zerodha_kite}/login`}
           className="KiteLoginBtn"
           target="_blank"
           rel="noopener noreferrer"
