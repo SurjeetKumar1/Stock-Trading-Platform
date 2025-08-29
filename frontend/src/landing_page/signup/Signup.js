@@ -19,12 +19,18 @@ function Signup() {
       setMessage("")
         e.preventDefault();
         try {
-          const response = await axios.post(`${DB_URL}/signup`, {
-            name,
-            lastName,
-            email,
-            password,
-          });
+          // const response = await axios.post(`${DB_URL}/signup`, {
+          //   name,
+          //   lastName,
+          //   email,
+          //   password,
+          // });
+          const response = await axios.post(
+            `${DB_URL}/signup`,
+            { name, lastName, email, password },
+            { withCredentials: true }   // 👈 add this config
+          );
+          
           if(response.data.Message){
             navigate("/login_zerodha_kite")
           }

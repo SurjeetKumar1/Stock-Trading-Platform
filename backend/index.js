@@ -15,13 +15,32 @@ const SECRET_KEY="MeraNameSurjeetHai"
 
 const PORT=process.env.PORT || 3002;
 const DB_URL=process.env.MONGO_URL;
-
+const cors = require("cors");
 const app=express();
 // app.use(cors());  //cors is s middleware
+// app.use(cors({
+//   origin: ["https://zerodha-snowy-three.vercel.app", "https://zerodha-kite-kappa.vercel.app"],
+//   credentials: true
+// }));
 app.use(cors({
-  origin: ["https://zerodha-snowy-three.vercel.app", "https://zerodha-kite-kappa.vercel.app"],
+  origin: [
+    "https://zerodha-snowy-three.vercel.app",
+    "https://zerodha-kite-kappa.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+
+// Explicitly handle preflight
+app.options("*", cors({
+  origin: [
+    "https://zerodha-snowy-three.vercel.app",
+    "https://zerodha-kite-kappa.vercel.app"
+  ],
+  credentials: true
+}));
+
 app.use(bodyParser.json())
 app.use(cookieParser());
 
